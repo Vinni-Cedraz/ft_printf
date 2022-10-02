@@ -3,10 +3,9 @@
 * it has started as a 42 School's project but is growing to become more than that
 
 ## libc functions by #include headers:
-* **#include <ctype.h>**
-
-• isalpha
-• isdigit
-• isalnum
-• isascii
-• isprint
+ **#include <ctype.h>**
+* isalpha
+* isdigit
+* isalnum
+* isascii
+* isprint
