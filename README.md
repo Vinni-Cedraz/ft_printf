@@ -3,8 +3,9 @@
 * it has started as a 42 School's project but is growing to become more than that
 
 ## free goodies:
-* war.sh and trip.sh are shell scripts to make it easier to run the famous libft testers war machine and Tripouille
-
+* war.sh and trip.sh are shell scripts to make it easier to run the famous libft testers War Machine and Tripouille
+* here's how to use them:
+1 * edit the libft_revisited path in the scripts to your actuall path
 ## libc functions by #include headers:
  **from #include <ctype.h>**
 * isalpha
