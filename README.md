@@ -34,5 +34,14 @@
 **from #include <strings.h>**
 * bzero
 
-** all the other funtions are not in the libc**
+**all the other functions are not in the libc**
 
+## Here are the non-mandatory ones I created and added for convenience:
+* ft_strrev
+* ft_numlen
+* ft_abs
+* ft_word_counter
+
+## short descriptions of what each function does can be found in the libft.h file
+
+![image](https://user-images.githubusercontent.com/92558763/193467897-d5cc881d-449f-4abc-b6a0-d90d881ddc0e.png)
