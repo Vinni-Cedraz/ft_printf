@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 16:31:03 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/10/02 18:52:16 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2022/10/02 18:57:08 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	result = malloc(len);
 	ft_strlcpy(result, s1, len);
 	ft_strlcat(result, s2, len);
-	return ((char *)result);
+	return (result);
 }
