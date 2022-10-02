@@ -34,7 +34,7 @@
 **from #include <strings.h>**
 * bzero
 
-**all the other functions in the repo, that weren't mentioned here, are not part of the libc**
+**all the functions in the repo that weren't mentioned here are just not part of the libc**
 
 ## Here are the non-mandatory ones I created and added for convenience:
 * ft_strrev
