@@ -3,9 +3,36 @@
 * it has started as a 42 School's project but is growing to become more than that
 
 ## libc functions by #include headers:
- **#include <ctype.h>**
+ **from #include <ctype.h>**
 * isalpha
 * isdigit
 * isalnum
 * isascii
 * isprint
+* toupper
+* tolower
+
+**from #include <string.h>**
+* strlen
+* strdup
+* memset
+* memcpy 
+* memmove
+* memcmp
+* memchr
+* strlcpy (libbsd(7))
+* strlcat (libbsd(7))
+* strncmp
+* strchr
+* strrchr
+* strnstr
+
+**from #include <stdlib.h>**
+* calloc
+* atoi
+
+**from #include <strings.h>**
+* bzero
+
+** all the other funtions are not in the libc**
+
