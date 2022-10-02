@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 16:31:03 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/10/02 00:36:52 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2022/10/02 18:52:16 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*result;
 
 	len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	result = (char *)malloc(len);
+	result = malloc(len);
 	ft_strlcpy(result, s1, len);
 	ft_strlcat(result, s2, len);
 	return ((char *)result);
