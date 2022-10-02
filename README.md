@@ -3,7 +3,8 @@
 * it has started as a 42 School's project but is growing to become more than that
 
 ## libc functions by #include headers:
-* from #include <ctype.h>:
+* **#include <ctype.h>**
+
 • isalpha
 • isdigit
 • isalnum
