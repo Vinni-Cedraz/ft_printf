@@ -46,7 +46,7 @@
 
 ![image](https://user-images.githubusercontent.com/92558763/193467897-d5cc881d-449f-4abc-b6a0-d90d881ddc0e.png)
 
-## I assume most text editors allow you to view the info in the header file from the inside of a .c file, like so:
+## I assume most text editors allow you to view the info in the header file from the inside of a ".c" file, like so:
 
 ![image](https://user-images.githubusercontent.com/92558763/193468036-25d54ed5-80f7-44d5-a729-445d0da4b7e1.png)
 **mine is Lunarvim by the way**
