@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 18:49:25 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/10/02 22:52:00 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2022/10/03 13:16:01 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ char	**ft_split(char const *s, char c)
 			if (*end != c)
 				start = end;
 		end = ft_strchr(start, c);
-		if (end == NULL)
-			end = ft_strchr(start + 1, 0);
+		if (!end)
+			end = end + ft_strlen(start);
 		str_arr[i] = ft_substr(start, 0, end - start);
-		if (str_arr[i] == NULL)
-			ft_free_arr(str_arr);
+		if (!str_arr[i])
+			ft_free_arr(str_arr, (void **)str_arr);
 	}
 	return (str_arr);
 }
