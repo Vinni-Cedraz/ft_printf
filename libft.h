@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 14:05:49 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/10/02 14:37:41 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2022/10/02 19:51:46 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 // src, so if the return value is >= size, the output string has been truncated.
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 // ft_strlcat concatenates the null terminated src to the null terminated dst,
-// but at most size - ft_strlen(dst) - 1,  
+// but at most size - ft_strlen(dst) - 1,
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 // THE ONES THAT RETURN A POINTER TO A PRE-EXISTING MEMORY ADRESS:
@@ -144,5 +144,7 @@ int		ft_numlen(int n);
 char	*ft_strrev(char *str);
 // ft_word_counter counts the number of words in a string:
 int		ft_word_counter(char const *s, char c);
+// ft_free_arr frees an array of strings:
+void	ft_free_arr(char **arr);
 
 #endif // !LIBFT_H

@@ -6,7 +6,7 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2022/10/01 19:12:12 by vcedraz-         ###   ########.fr        #
+#    Updated: 2022/10/02 19:52:01 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ MANDATORY_SRCS	=	ft_isalpha.c \
 					ft_numlen.c \
 					ft_strrev.c \
 					ft_word_counter.c \
+					ft_free_arr.c \
 					
 
 OBJS = $(MANDATORY_SRCS:.c=.o)
