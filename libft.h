@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 14:05:49 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/10/02 19:51:46 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2022/10/03 13:10:19 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,6 @@ char	*ft_strrev(char *str);
 // ft_word_counter counts the number of words in a string:
 int		ft_word_counter(char const *s, char c);
 // ft_free_arr frees an array of strings:
-void	ft_free_arr(char **arr);
+void  ft_free_arr(char **arr, void **aux);
 
 #endif // !LIBFT_H
