@@ -3,14 +3,17 @@
 * it has started as a 42 School's project but is growing to become more than that
 
 ## free goodies:
-* war.sh and trip.sh are shell scripts to make it easier to run the famous libft testers War Machine and Tripouille
-* here's how to use them:
-* clone the war-machine and tripouille testers repos to your home directory
-* edit war-machine's my_config.sh PATH to match that of your libft_revisited directory
-* with tripouille, you'll find the LIBFT_PATH variable in the line 4 of it's Makefile
-* then, just edit it's value to match that of your libft_revisted directory
-* you cannot change tripouille's default repo name or things won't work!
-* trip.sh has a line for the standard make and another for the docker version, edit accordingly
+`war.sh` and `trip.sh` are shell scripts to make it easier to run the famous `libft` testers **War Machine** and **Tripouille**
+> here's how to use them:
+
+1. clone the **war-machine** and **tripouille** testers repos to your home directory
+2. edit war-machine's `my_config.sh` PATH to match that of your libft_revisited directory
+3. with **tripouille**, you'll find the `LIBFT_PATH` variable in the line 4 of it's Makefile
+4. then, just edit it's value to match that of your libft_revisted directory
+
+> you cannot change tripouille's default repo name or things won't work!
+
+`trip.sh` has a line for the standard make and another for the docker version, edit accordingly
 
 
 ## libc functions by #include headers:
