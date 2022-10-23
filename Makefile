@@ -6,7 +6,7 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2022/10/02 19:52:01 by vcedraz-         ###   ########.fr        #
+#    Updated: 2022/10/23 14:08:25 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ bonus:
 
 clean:
 	$(RM) $(OBJS) $(BOBJS)
+	rm a.out
 
 fclean: clean
 	$(RM) $(NAME)
