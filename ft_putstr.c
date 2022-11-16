@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/09 14:56:52 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/15 20:48:45 by vcedraz-         ###   ########.fr       */
+/*   Created: 2022/11/15 14:20:54 by vcedraz-          #+#    #+#             */
+/*   Updated: 2022/11/15 14:30:00 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_putstr(char *s)
 {
-	ft_memset(s, 0, n);
+	int	i;
+
+	i = 0;
+	if (!s)
+		return (0);
+	while (*(s + i))
+		i++;
+	return (write(1, s, i));
 }
