@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/09 14:56:52 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/15 20:48:45 by vcedraz-         ###   ########.fr       */
+/*   Created: 2022/11/16 00:24:02 by vcedraz-          #+#    #+#             */
+/*   Updated: 2022/11/16 00:24:04 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+t_list	*ft_lstnew(void *content)
 {
-	ft_memset(s, 0, n);
+	t_list	*list;
+
+	list = malloc(sizeof(*list));
+	list->content = content;
+	list->next = NULL;
+	return (list);
 }
