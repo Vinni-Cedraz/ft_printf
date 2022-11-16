@@ -51,6 +51,7 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# libfttesters
+# testers
 libftTester/
 main.c
+malloc.c

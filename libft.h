@@ -6,13 +6,15 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 14:05:49 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/16 00:31:30 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2022/11/16 18:00:25 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
+# define INT_MIN -2147483648
 # define LIBFT_H
 
+# include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -23,6 +25,25 @@ typedef struct s_list
 	void				*content;
 	struct s_list		*next;
 }						t_list;
+
+typedef struct s
+{
+	char	**str_arr;
+	char	*res;
+	char	*tmp;
+	char	*start;
+	char	*str;
+	char	*to_ascii;
+	char	*end;
+	size_t	len;
+	size_t	words;
+	size_t	half;
+	size_t	baselen;
+	size_t	i;
+	size_t	sign;
+	size_t	result;
+	size_t	abs;
+}						t_ools;
 
 // ASCII TYPE IDENTIFICATION FUNCTIONS:
 
@@ -157,5 +178,7 @@ char					*ft_strrev(char *str);
 int						ft_word_counter(char const *s, char c);
 // ft_free_arr frees an array of strings:
 void					ft_free_arr(char **arr, void **aux);
+// ft_itoa_base converts an int to a string in a given base:
+char					*ft_itoa_base(size_t n, char *base);
 
 #endif // !LIBFT_H

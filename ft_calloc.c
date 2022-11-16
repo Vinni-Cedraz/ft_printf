@@ -6,11 +6,29 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:01:20 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/15 23:33:40 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2022/11/16 16:50:43 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static size_t	mal0_clear(char *p, size_t n);
+
+void	*ft_calloc(size_t m, size_t n)
+{
+	void	*p;
+
+	if (n && m > (size_t)-1 / n)
+	{
+		return (0);
+	}
+	n *= m;
+	p = malloc(n);
+	if (!p)
+		return (p);
+	n = mal0_clear(p, n);
+	return (ft_memset(p, 0, n));
+}
 
 static size_t	mal0_clear(char *p, size_t n)
 {
@@ -37,20 +55,4 @@ static size_t	mal0_clear(char *p, size_t n)
 				break ;
 		}
 	}
-}
-
-void	*ft_calloc(size_t m, size_t n)
-{
-	void	*p;
-
-	if (n && m > (size_t)-1 / n)
-	{
-		return (0);
-	}
-	n *= m;
-	p = malloc(n);
-	if (!p)
-		return (p);
-	n = mal0_clear(p, n);
-	return (ft_memset(p, 0, n));
 }
