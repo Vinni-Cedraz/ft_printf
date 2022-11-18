@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 18:28:57 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/18 18:00:52 by vcedraz-         ###   ########.fr       */
+/*   Created: 2022/11/18 16:28:03 by vcedraz-          #+#    #+#             */
+/*   Updated: 2022/11/18 16:28:39 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrev(char *str, size_t strlen)
+void	ft_rev_int_tab(int *tab, int size)
 {
-	t_ools	tool;
+	int	frmbgn;
+	int	frmend;
 
-	tool.frmbgn = -1;
-	tool.frmend = strlen;
-	tool.tmp = malloc(sizeof(char));
-	while (++tool.frmbgn < strlen / 2)
+	frmbgn = 0;
+	frmend = size - 1;
+	while (frmbgn < (size / 2))
 	{
-		*tool.tmp = *(str + tool.frmbgn);
-		*(str + tool.frmbgn) = *(--tool.frmend + str);
-		*(str + tool.frmend) = *tool.tmp;
+		ft_swap(&tab[frmbgn], &tab[frmend]);
+		frmbgn++;
+		frmend--;
 	}
-	return (free(tool.tmp), str);
 }
