@@ -1,29 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 18:28:57 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/18 18:00:52 by vcedraz-         ###   ########.fr       */
+/*   Created: 2022/11/18 16:25:09 by vcedraz-          #+#    #+#             */
+/*   Updated: 2022/11/18 18:00:07 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stddef.h>
 
-char	*ft_strrev(char *str, size_t strlen)
+void	ft_swap(size_t *x, size_t *y)
 {
-	t_ools	tool;
+	int	c;
 
-	tool.frmbgn = -1;
-	tool.frmend = strlen;
-	tool.tmp = malloc(sizeof(char));
-	while (++tool.frmbgn < strlen / 2)
+	c = *x;
+	*x = *y;
+	*y = c;
+}
+
+void	ft_sort_int_tab(size_t *tab, size_t size)
+{
+	size_t	i;
+	size_t	begin;
+
+	i = 0;
+	begin = 0;
+	while (i < size - 1)
 	{
-		*tool.tmp = *(str + tool.frmbgn);
-		*(str + tool.frmbgn) = *(--tool.frmend + str);
-		*(str + tool.frmend) = *tool.tmp;
+		while (begin < size - 1)
+		{
+			if (tab[begin] > tab[begin + 1])
+			{
+				ft_swap(&tab[begin], &tab[begin + 1]);
+			}
+			begin++;
+		}
+		i++;
 	}
-	return (free(tool.tmp), str);
 }

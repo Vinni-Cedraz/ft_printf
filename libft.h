@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 14:05:49 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/16 18:00:25 by vcedraz-         ###   ########.fr       */
+/*   Created: 2022/11/18 09:46:16 by vcedraz-          #+#    #+#             */
+/*   Updated: 2022/11/18 17:57:33 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ typedef struct s
 	size_t	baselen;
 	size_t	i;
 	size_t	sign;
+	size_t	frmbgn;
+	size_t	frmend;
 	size_t	result;
 	size_t	abs;
 }						t_ools;
@@ -158,13 +160,15 @@ int						ft_atoi(const char *str);
 // ft_itoa converts an int to a string, it can hangle negative numbers:
 char					*ft_itoa(int n);
 // ft_putchar_fd writes a char to a file descriptor:
-void					ft_putchar_fd(char c, int fd);
+size_t					ft_putchar_fd(char c, int fd);
 // ft_putstr_fd writes a string to a file descriptor:
-void					ft_putstr_fd(char *s, int fd);
+size_t					ft_putstr_fd(char *s, int fd);
 // ft_putendl_fd writes a string to a file descriptor, and then a newline:
 void					ft_putendl_fd(char *s, int fd);
 // ft_putnbr_fd writes an int to a file descriptor:
 void					ft_putnbr_fd(int n, int fd);
+// just a putchar
+size_t					ft_putchar(char c);
 
 // EXTRA FUNCTIONS:
 
@@ -173,12 +177,14 @@ int						ft_abs(int n);
 // ft_numlen returns the number of digits of an int:
 int						ft_numlen(int n);
 // ft_strrev reverses a string:
-char					*ft_strrev(char *str);
+char					*ft_strrev(char *str, size_t strlen);
 // ft_word_counter counts the number of words in a string:
 int						ft_word_counter(char const *s, char c);
 // ft_free_arr frees an array of strings:
 void					ft_free_arr(char **arr, void **aux);
 // ft_itoa_base converts an int to a string in a given base:
 char					*ft_itoa_base(size_t n, char *base);
+// ft_swap swaps two voids:
+void					ft_swap(size_t *a, size_t *b);
 
 #endif // !LIBFT_H
