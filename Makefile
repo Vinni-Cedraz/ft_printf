@@ -6,7 +6,7 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2022/11/16 00:34:31 by vcedraz-         ###   ########.fr        #
+#    Updated: 2022/11/18 19:53:49 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libft.a
@@ -62,6 +62,9 @@ SRCS = ft_isalpha.c \
 	ft_putchar.c \
 	ft_putstr.c \
 	ft_itoa_base.c \
+	ft_swap.c \
+	ft_rev_int_tab.c \
+	ft_sort_int_tab.c \
 ft_lstadd_back.c \
 ft_lstadd_front.c \
 ft_lstdelone.c \

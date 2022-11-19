@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 18:28:57 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/18 18:00:52 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2022/11/19 07:59:03 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ char	*ft_strrev(char *str, size_t strlen)
 	tool.tmp = malloc(sizeof(char));
 	while (++tool.frmbgn < strlen / 2)
 	{
-		*tool.tmp = *(str + tool.frmbgn);
-		*(str + tool.frmbgn) = *(--tool.frmend + str);
-		*(str + tool.frmend) = *tool.tmp;
+		ft_swap(&str[tool.frmbgn], &str[--tool.frmend], sizeof(char));
 	}
 	return (free(tool.tmp), str);
 }

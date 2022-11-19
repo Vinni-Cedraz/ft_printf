@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:46:16 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/18 17:57:33 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2022/11/19 07:57:33 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,6 +185,10 @@ void					ft_free_arr(char **arr, void **aux);
 // ft_itoa_base converts an int to a string in a given base:
 char					*ft_itoa_base(size_t n, char *base);
 // ft_swap swaps two voids:
-void					ft_swap(size_t *a, size_t *b);
+void					ft_swap(void *a, void *b, size_t size);
+// ft_sort_int_tab sorts an int array:
+void					ft_sort_int_tab(size_t *tab, size_t size);
+// ft_rev_int_tab reverses an int array:
+void					ft_rev_int_tab(size_t *tab, size_t size);
 
 #endif // !LIBFT_H
