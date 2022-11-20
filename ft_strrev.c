@@ -6,12 +6,14 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 18:28:57 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/19 18:52:13 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2022/11/20 07:57:09 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// tool.frmbgn starts from the beginning of the string
+// tool.frmend starts from the end of the string
 char	*ft_strrev(char *str, size_t strlen)
 {
 	t_ools	tool;
