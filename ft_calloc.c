@@ -6,13 +6,14 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:01:20 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/16 16:50:43 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2022/11/20 12:14:58 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <sys/types.h>
 
-static size_t	mal0_clear(char *p, size_t n);
+static size_t	mal0_clear(t_uc *p, size_t n);
 
 void	*ft_calloc(size_t m, size_t n)
 {
@@ -30,28 +31,27 @@ void	*ft_calloc(size_t m, size_t n)
 	return (ft_memset(p, 0, n));
 }
 
-static size_t	mal0_clear(char *p, size_t n)
+static size_t	mal0_clear(t_uc *p, size_t n)
 {
-	size_t	pagesz;
-	char	*pp;
-	size_t	i;
+	t_uc			*pp;
+	register t_ools	page;
 
-	pagesz = 4096;
-	if (n < pagesz)
+	page.size = 4096;
+	if (n < page.size)
 		return (n);
 	pp = p + n;
-	i = (size_t)pp & (pagesz - 1);
+	page.i = (long)pp & (page.size - 1);
 	while (1)
 	{
-		pp = ft_memset(pp - i, 0, i);
-		if (pp - p < (long)pagesz)
+		pp = ft_memset(pp - page.i, 0, page.i);
+		if ((size_t)(pp - p) < page.size)
 			return (pp - p);
-		i = pagesz;
-		while (i)
+		page.i = page.size;
+		while (page.i)
 		{
-			i -= 2 * sizeof(t_uc);
+			page.i -= 2 * sizeof(t_uc);
 			pp -= 2 * sizeof(t_uc);
-			if (((t_uc *)pp)[-1] | ((t_uc *)pp)[-2])
+			if (pp[-1] | pp[-2])
 				break ;
 		}
 	}

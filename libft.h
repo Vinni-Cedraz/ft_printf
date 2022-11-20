@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:46:16 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/20 07:58:52 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2022/11/20 12:05:21 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s
 	char	*to_ascii;
 	char	*end;
 	size_t	len;
+	size_t	size;
 	size_t	words;
 	size_t	half;
 	size_t	baselen;
@@ -193,5 +194,9 @@ void					ft_sort_int_tab(size_t *tab, size_t size);
 void					ft_rev_int_tab(size_t *tab, size_t size);
 
 void					ft_putstr_non_printable(char *str);
+// this is the classic ft_putstr:
+size_t					ft_putstr(char *str);
+// this is a function to measure if ft_calloc worked properly:
+size_t					ft_memorylen(void *ptr, size_t size);
 
 #endif // !LIBFT_H

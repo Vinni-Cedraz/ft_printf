@@ -6,13 +6,13 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2022/11/19 17:56:12 by vcedraz-         ###   ########.fr        #
+#    Updated: 2022/11/20 17:42:34 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libft.a
 
 
-CFLAGS = -Wall -Werror -Wextra -O3
+CFLAGS = -Wall -Werror -Wextra -g
 
 AR = ar -rsc
 
@@ -66,6 +66,7 @@ SRCS = ft_isalpha.c \
 	ft_rev_int_tab.c \
 	ft_putstr_non_printable.c \
 	ft_sort_int_tab.c \
+	ft_memorylen.c \
 ft_lstadd_back.c \
 ft_lstadd_front.c \
 ft_lstdelone.c \
