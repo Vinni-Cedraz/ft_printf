@@ -6,12 +6,13 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:46:16 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/19 07:57:33 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:05:08 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define INT_MIN -2147483648
+# define HEX "0123456789abcdef"
 # define LIBFT_H
 
 # include <stddef.h>
@@ -190,5 +191,7 @@ void					ft_swap(void *a, void *b, size_t size);
 void					ft_sort_int_tab(size_t *tab, size_t size);
 // ft_rev_int_tab reverses an int array:
 void					ft_rev_int_tab(size_t *tab, size_t size);
+
+void					ft_putstr_non_printable(char *str);
 
 #endif // !LIBFT_H
