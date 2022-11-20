@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:46:16 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/19 18:05:08 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2022/11/20 07:58:52 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ typedef struct s
 	size_t	baselen;
 	size_t	i;
 	size_t	sign;
-	size_t	frmbgn;
-	size_t	frmend;
+	size_t	from_start;
+	size_t	from_end;
 	size_t	result;
 	size_t	abs;
 }						t_ools;
