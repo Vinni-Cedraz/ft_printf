@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   speedtest.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 16:28:03 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/20 09:07:51 by vcedraz-         ###   ########.fr       */
+/*   Created: 2022/11/20 08:53:13 by vcedraz-          #+#    #+#             */
+/*   Updated: 2022/11/20 12:24:08 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <time.h>
 
-void	ft_rev_int_tab(size_t *tab, size_t size)
+// this function is a speedtest for the ft_calloc function
+
+int	main(void)
 {
-	t_ools	tool;
+	double	cpu_time_used;
+	void	*ptr;
 
-	tool.from_start = 0;
-	tool.from_end = size - 1;
-	while (tool.from_start < (size / 2))
-	{
-		ft_swap(&tab[tool.from_start], &tab[tool.from_end], sizeof(size_t));
-		tool.from_start++;
-		tool.from_end--;
-	}
+	clock_t start, end;
+	start = clock();
+	ptr = ft_calloc(__INT_MAX__, sizeof(int));
+	end = clock();
+	cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+	printf("Time taken: %f\n", cpu_time_used);
+	printf("%lu", ft_memorylen(ptr, __INT_MAX__));
+	return (free(ptr), 0);
 }

@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   itoabasetest.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 16:28:03 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/20 09:07:51 by vcedraz-         ###   ########.fr       */
+/*   Created: 2022/11/20 17:39:53 by vcedraz-          #+#    #+#             */
+/*   Updated: 2022/11/20 17:41:31 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-void	ft_rev_int_tab(size_t *tab, size_t size)
+// this is a test to check hex conversion from ft_itoa_base
+
+int	main(void)
 {
-	t_ools	tool;
+	int		i;
+	char	*str;
 
-	tool.from_start = 0;
-	tool.from_end = size - 1;
-	while (tool.from_start < (size / 2))
-	{
-		ft_swap(&tab[tool.from_start], &tab[tool.from_end], sizeof(size_t));
-		tool.from_start++;
-		tool.from_end--;
-	}
+	i = 98798;
+	str = ft_itoa_base(i, "0123456789abcdef");
+	printf("%s\n", str);
 }
