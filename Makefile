@@ -6,7 +6,7 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2022/11/20 17:42:34 by vcedraz-         ###   ########.fr        #
+#    Updated: 2022/11/23 20:41:52 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libft.a
@@ -14,11 +14,13 @@ NAME = libft.a
 
 CFLAGS = -Wall -Werror -Wextra -g
 
-AR = ar -rsc
+AR = ar -rs
 
 RM = rm -f
 
 OBJS_PATH = ./objs/
+
+PRNTF_OBJS_PATH = ./prntf_objs/
 
 SRCS = ft_isalpha.c \
   ft_isdigit.c \
@@ -67,22 +69,36 @@ SRCS = ft_isalpha.c \
 	ft_putstr_non_printable.c \
 	ft_sort_int_tab.c \
 	ft_memorylen.c \
-ft_lstadd_back.c \
+
+BSRCS = ft_lstadd_back.c \
 ft_lstadd_front.c \
 ft_lstdelone.c \
 ft_lstlast.c \
 ft_lstnew.c \
 ft_lstsize.c \
 	
+PRNTF_SRCS = 	ft_putchar.c \
+				ft_itoa_base.c \
+				ft_calloc.c \
+				ft_strlen.c \
+				ft_memset.c \
+
 
 OBJECTS = $(SRCS:%.c=$(OBJS_PATH)%.o)
+BONUS_OBJECTS = $(BSRCS:%.c=$(OBJS_PATH)%.o)
+PRNTF_OBJECTS = $(PRNTF_SRCS:%.c=$(PRNTF_OBJS_PATH)%.o)
 
 
 all : $(NAME) 
 
 
-$(OBJS_PATH)%.o : %.c
+$(OBJS_PATH)%.o : $(SRCS)
 	@mkdir -p $(OBJS_PATH)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+
+$(PRNF_OBJS_PATH)%.o : $(PRNTF_SRCS)
+	@mkdir -p $(PRNTF_OBJS_PATH)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 
@@ -90,8 +106,17 @@ $(NAME) : $(OBJECTS)
 	@$(AR) $(NAME) $(OBJECTS) 
 
 
+bonus : $(NAME) $(BONUS_OBJECTS)
+	@$(AR) $(NAME) $(BONUS_OBJECTS)
+
+
+printf : $(PRNTF_OBJECTS)
+	@$(AR) $(NAME) $(PRNTF_OBJECTS)
+
+
 clean :
 	$(RM) -rf $(OBJS_PATH)
+	$(RM) -rf $(PRNTF_OBJS_PATH)
 	@rm -f a.out
 	@rm -f compile_commands.json
 
@@ -101,3 +126,5 @@ fclean : clean
 
 
 re : fclean all
+
+phony : all clean fclean re bonus printf
