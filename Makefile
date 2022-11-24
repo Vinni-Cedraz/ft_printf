@@ -6,13 +6,13 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2022/11/23 23:08:21 by vcedraz-         ###   ########.fr        #
+#    Updated: 2022/11/24 17:18:11 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
 NAME = libft.a
 
+NAME_BONUS = libft_bonus.a
 
 CFLAGS = -Wall -Werror -Wextra -g
 
@@ -22,7 +22,7 @@ RM = rm -f
 
 OBJS_PATH = ./objs/
 
-PRNTF_OBJS_PATH = ./prntf_objs/
+OBJSB_PATH = ./objs_bonus/
 
 SRCS = ft_isalpha.c \
 ft_isdigit.c \
@@ -85,44 +85,36 @@ ft_calloc.c \
 ft_strlen.c \
 ft_memset.c \
 
-
-OBJECTS = $(SRCS:%.c=$(OBJS_PATH)%.o)
-BONUS_OBJECTS = $(BSRCS:%.c=$(OBJS_PATH)%.o)
-PRNTF_OBJECTS = $(PRNTF_SRCS:%.c=$(PRNTF_OBJS_PATH)%.o)
-
+OBJS = $(patsubst %.c, $(OBJS_PATH)%.o, $(SRCS))
+OBJSB = $(patsubst %.c, $(OBJSB_PATH)%.o, $(BSRCS))
 
 all : $(NAME) 
 
+bonus : $(NAME_BONUS)
 
-$(OBJS_PATH)%.o : $(SRCS)
+$(NAME) : $(OBJS)
+	$(AR) $(NAME) $(OBJS) 
+
+$(OBJS_PATH)%.o : %.c
 	@mkdir -p $(OBJS_PATH)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-
-$(PRNF_OBJS_PATH)%.o : $(PRNTF_SRCS)
-	@mkdir -p $(PRNTF_OBJS_PATH)
+$(OBJSB_PATH)%.o : %.c
+	@mkdir -p $(OBJSB_PATH)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-
-$(NAME) : $(OBJECTS)
-	@$(AR) $(NAME) $(OBJECTS) 
-
-
-bonus : $(NAME) $(BONUS_OBJECTS)
-	@$(AR) $(NAME) $(BONUS_OBJECTS)
-
-
-printf : $(PRNTF_OBJECTS)
-	@$(AR) $(NAME) $(PRNTF_OBJECTS)
+$(NAME_BONUS) : $(NAME) $(OBJSB)
+	cp $(NAME) $(NAME_BONUS)
+	$(AR) $(NAME_BONUS) $(OBJSB)
 
 clean :
 	rm -rf $(OBJS_PATH)
-	rm -rf $(PRNTF_OBJS_PATH)
+	rm -rf $(OBJSB_PATH)
 	@rm -f a.out
 	@rm -f compile_commands.json
 
 fclean : clean
-	$(RM) $(NAME)
+	$(RM) *.a
 
 re : fclean all
 
