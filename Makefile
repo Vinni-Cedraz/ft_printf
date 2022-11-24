@@ -6,13 +6,15 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2022/11/24 17:18:11 by vcedraz-         ###   ########.fr        #
+#    Updated: 2022/11/24 17:30:19 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 NAME_BONUS = libft_bonus.a
+
+NAME_PRNTF = libs_printf.a
 
 CFLAGS = -Wall -Werror -Wextra -g
 
@@ -23,6 +25,8 @@ RM = rm -f
 OBJS_PATH = ./objs/
 
 OBJSB_PATH = ./objs_bonus/
+
+PRNTF_OBJS_PATH = ./objs_printf/
 
 SRCS = ft_isalpha.c \
 ft_isdigit.c \
@@ -87,10 +91,14 @@ ft_memset.c \
 
 OBJS = $(patsubst %.c, $(OBJS_PATH)%.o, $(SRCS))
 OBJSB = $(patsubst %.c, $(OBJSB_PATH)%.o, $(BSRCS))
+OBJS_PRNTF = $(patsubst %.c, $(PRNTF_OBJS_PATH)%.o, $(PRNTF_SRCS))
+
 
 all : $(NAME) 
 
 bonus : $(NAME_BONUS)
+
+printf : $(NAME_PRNTF)
 
 $(NAME) : $(OBJS)
 	$(AR) $(NAME) $(OBJS) 
@@ -103,13 +111,21 @@ $(OBJSB_PATH)%.o : %.c
 	@mkdir -p $(OBJSB_PATH)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+$(PRNTF_OBJS_PATH)%.o : %.c
+	@mkdir -p $(PRNTF_OBJS_PATH)
+	$(CC) $(CFLAGS) -c $< -o $@
+
 $(NAME_BONUS) : $(NAME) $(OBJSB)
 	cp $(NAME) $(NAME_BONUS)
 	$(AR) $(NAME_BONUS) $(OBJSB)
 
+$(NAME_PRNTF) : $(OBJS_PRNTF)
+	$(AR) $(NAME_PRNTF) $(OBJS_PRNTF)
+
 clean :
 	rm -rf $(OBJS_PATH)
 	rm -rf $(OBJSB_PATH)
+	rm -rf $(PRNTF_OBJS_PATH)
 	@rm -f a.out
 	@rm -f compile_commands.json
 
