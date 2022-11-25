@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:46:16 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/20 12:05:21 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2022/11/25 19:55:03 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
+
+# ifndef BUFFER_SIZE
+# define BUFFER_SIZE 1
+# endif
 
 typedef unsigned char	t_uc;
 
@@ -47,6 +52,14 @@ typedef struct s
 	size_t	from_end;
 	size_t	result;
 	size_t	abs;
+	size_t	max;
+	char	*lnbrk;
+	char	*read;
+	char	*wth_all;
+	char	*bfr_brk;
+	char	*aftbrk;
+	int		aftbrk_len;
+	int   	bfrbrk_len;
 }						t_ools;
 
 // ASCII TYPE IDENTIFICATION FUNCTIONS:
@@ -192,8 +205,8 @@ void					ft_swap(void *a, void *b, size_t size);
 void					ft_sort_int_tab(size_t *tab, size_t size);
 // ft_rev_int_tab reverses an int array:
 void					ft_rev_int_tab(size_t *tab, size_t size);
-
-void					ft_putstr_non_printable(char *str);
+// ft_hexdump prints a hexdump of a file:
+void					ft_hexdump(char *str);
 // this is the classic ft_putstr:
 size_t					ft_putstr(char *str);
 // this is a function to measure if ft_calloc worked properly:

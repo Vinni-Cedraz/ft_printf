@@ -6,27 +6,18 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2022/11/24 17:30:19 by vcedraz-         ###   ########.fr        #
+#    Updated: 2022/11/25 20:00:01 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+## VARIABLES ##
+
 NAME = libft.a
-
 NAME_BONUS = libft_bonus.a
-
 NAME_PRNTF = libs_printf.a
-
 CFLAGS = -Wall -Werror -Wextra -g
-
 AR = ar -rs
-
 RM = rm -f
-
-OBJS_PATH = ./objs/
-
-OBJSB_PATH = ./objs_bonus/
-
-PRNTF_OBJS_PATH = ./objs_printf/
 
 SRCS = ft_isalpha.c \
 ft_isdigit.c \
@@ -72,9 +63,10 @@ ft_putstr.c \
 ft_itoa_base.c \
 ft_swap.c \
 ft_rev_int_tab.c \
-ft_putstr_non_printable.c \
+ft_hexdump.c \
 ft_sort_int_tab.c \
 ft_memorylen.c \
+ft_gnl.c \
 
 BSRCS = ft_lstadd_back.c \
 ft_lstadd_front.c \
@@ -89,10 +81,14 @@ ft_calloc.c \
 ft_strlen.c \
 ft_memset.c \
 
+OBJS_PATH = ./objs/
+OBJSB_PATH = ./objs_bonus/
+PRNTF_OBJS_PATH = ./objs_printf/
 OBJS = $(patsubst %.c, $(OBJS_PATH)%.o, $(SRCS))
 OBJSB = $(patsubst %.c, $(OBJSB_PATH)%.o, $(BSRCS))
 OBJS_PRNTF = $(patsubst %.c, $(PRNTF_OBJS_PATH)%.o, $(PRNTF_SRCS))
 
+## RULES ##
 
 all : $(NAME) 
 
