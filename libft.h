@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:46:16 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/25 19:55:03 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2022/12/03 20:37:29 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <fcntl.h>
 
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1
+# define BUFFER_SIZE __INT_MAX__
 # endif
 
 typedef unsigned char	t_uc;
@@ -211,5 +211,7 @@ void					ft_hexdump(char *str);
 size_t					ft_putstr(char *str);
 // this is a function to measure if ft_calloc worked properly:
 size_t					ft_memorylen(void *ptr, size_t size);
+// this is ft_gnl, a function to read a file line by line:
+char					*ft_gnl(int fd);
 
 #endif // !LIBFT_H
