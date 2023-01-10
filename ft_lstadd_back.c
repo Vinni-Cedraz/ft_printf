@@ -6,15 +6,16 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 00:22:00 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/16 00:22:38 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/01/09 19:05:45 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_bonus.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_node **lst, t_node *new)
 {
-	t_list	*temp;
+	t_node	*temp;
 
 	if (!lst || !new)
 		return ;
@@ -27,4 +28,5 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	while (temp->next)
 		temp = temp->next;
 	temp->next = new;
+	new->next = NULL;
 }

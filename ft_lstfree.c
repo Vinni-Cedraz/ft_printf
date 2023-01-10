@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_lstfree.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 18:46:16 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/10 18:47:26 by vcedraz-         ###   ########.fr       */
+/*   Created: 2022/12/29 14:37:20 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/01/09 22:44:15 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
+#include "libft_bonus.h"
 
-# include "../includes/printf_libft_includes.h"
+void	ft_lstfree(t_node **list)
+{
+	t_node	*tmp;
 
-#endif
+	tmp = *list;
+	if (list == NULL)
+		return ;
+	while (tmp)
+	{
+		*list = tmp->next;
+		free(tmp);
+		tmp = *list;
+	}
+	free(list);
+}

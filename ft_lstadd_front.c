@@ -6,13 +6,14 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 00:22:53 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/16 00:23:04 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/01/07 12:58:41 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_bonus.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_node **lst, t_node *new)
 {
 	if (lst)
 	{
