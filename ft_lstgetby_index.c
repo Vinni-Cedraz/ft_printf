@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_lstgetby_index.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 18:46:16 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/10 18:47:26 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/01/09 17:14:22 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/01/09 21:17:58 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft_bonus.h"
 
-# include "../includes/printf_libft_includes.h"
-
-#endif
+t_node	*ft_lstgetby_index(t_node *lst, uint index)
+{
+	if (!index)
+		return (NULL);
+	while (lst)
+	{
+		if (!index--)
+			return (lst);
+		lst = lst->next;
+	}
+	return (NULL);
+}

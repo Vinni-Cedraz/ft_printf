@@ -6,36 +6,25 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2022/12/05 11:52:38 by vcedraz-         ###   ########.fr        #
+#    Updated: 2023/01/10 19:53:09 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-## VARIABLES ##
-
+## SET-UP VARIABLES ##
 SHELL := /bin/bash
-
 NAME = libft.a
-
 NAME_BONUS = libft_bonus.a
-
-NAME_PRNTF = srcs_to_printf.a
-
+NAME_PRNTF = ../libftprintf.a
 NAME_FDF = srcs_to_fdf.a
-
+NAME_FDF_BONUS = srcs_to_fdf_bonus.a
 CFLAGS = -Wall -Werror -Wextra -g
-
 AR = ar -rs
-
 RM = rm -f
-
 OBJS_PATH = ./objs/
-
 OBJSB_PATH = ./objs_bonus/
-
 PRNTF_OBJS_PATH = ./objs_printf/
-
 FDF_OBJS_PATH = ./objs_fdf/
-
+FDF_OBJSB_PATH = ./objs_fdf_bonus/
 DEF_COLOR = \033[0;39m
 GRAY = \033[0;37m
 RED = \033[0;91m
@@ -46,13 +35,18 @@ MAGENTA = \033[0;95m
 CYAN = \033[0;96m
 WHITE = \033[0;97m
 
+## SRCS VARIABLES ##
 SRCS = ft_abs \
 ft_atoi \
+ft_free_t_split \
+ft_free_t_map \
 ft_free_arr \
 ft_isalpha \
 ft_isascii \
 ft_isdigit \
 ft_isprint \
+ft_ishexup \
+ft_ishexlow \
 ft_memchr \
 ft_memcmp \
 ft_memcpy \
@@ -62,6 +56,7 @@ ft_numlen \
 ft_putchar \
 ft_putchar_fd \
 ft_strlen \
+ft_atoi_base \
 ft_strncmp \
 ft_word_counter \
 ft_calloc \
@@ -93,13 +88,23 @@ ft_strtrim \
 ft_substr \
 ft_gnl \
 ft_itoa \
+ft_split \
 
 BSRCS = ft_lstadd_back \
 ft_lstadd_front \
-ft_lstdelone \
+ft_special_gnl \
+ft_lstfree \
 ft_lstlast \
 ft_lstnew \
 ft_lstsize \
+ft_lstprint \
+ft_lstadd_here \
+ft_lstdel_here \
+ft_lstgetby_index \
+ft_lstgetby_content \
+ft_lstfree_nodes \
+ft_lstpop \
+ft_lstshift \
 	
 PRNTF_SRCS = ft_putchar \
 ft_strlen \
@@ -107,38 +112,55 @@ ft_memset \
 ft_calloc \
 ft_itoa_base \
 
-FDF_SRCS = ft_memchr \
-		   ft_strchr \
-			 ft_strlen \
-			 ft_memcpy \
-			 ft_memmove \
-			 ft_memset \
-			 ft_strdup \
-			 ft_strlcpy \
-			 ft_free_arr \
-			 ft_word_counter \
-			 ft_calloc \
-		     ft_strlcat \
-			 ft_atoi \
-			 ft_split \
-			 ft_strjoin \
-			 ft_substr \
-			 ft_gnl \
+FDF_SRCS = ft_strnstr \
+			   ft_swap \
+		  ft_free_t_map \
+		 ft_free_t_split \
+			 ft_atoi_base \
+		   ft_word_counter \
+				  ft_strlen \
+					  ft_gnl \
+				  ft_ishexlow \
+					 ft_calloc \
+					    ft_atoi \
+					   ft_memchr \
+					     ft_split \
+						ft_strjoin \
+						  ft_memcpy \
+						   ft_strdup \
 
+FDF_SRCS_BONUS = ft_strnstr \
+				     ft_swap \
+			    ft_free_t_map \
+			   ft_free_t_split \
+				   ft_atoi_base \
+			     ft_word_counter \
+					    ft_strlen \
+				    ft_special_gnl \
+					    ft_ishexlow \
+						   ft_calloc \
+							  ft_atoi \
+						     ft_memchr \
+							   ft_split \
+
+## OBJS VARIABLES ##
 OBJS = $(patsubst %, $(OBJS_PATH)%.o, $(SRCS))
 OBJSB = $(patsubst %, $(OBJSB_PATH)%.o, $(BSRCS))
 OBJS_PRNTF = $(patsubst %, $(PRNTF_OBJS_PATH)%.o, $(PRNTF_SRCS))
 OBJS_FDF = $(patsubst %, $(FDF_OBJS_PATH)%.o, $(FDF_SRCS))
+OBJSB_FDF = $(patsubst %, $(FDF_OBJSB_PATH)%.o, $(FDF_SRCS_BONUS))
 MOD_OBJ = $(shell find . -path "./objs/*.o" -type f -newer $(NAME))
 MOD_OBJB = $(shell find . -path "./objs_bonus/*.o" -type f -newer $(NAME_BONUS))
 MOD_OBJ_PRNTF = $(shell find . -path "./objs_printf/*.o" -type f -newer $(NAME_PRNTF))
 MOD_OBJ_FDF = $(shell find . -path "./objs_fdf/*.o" -type f -newer $(NAME_FDF))
-MOD_MK = $(shell find . -name "Makefile" -type f -newer $(NAME) || $(NAME_FDF) || $(NAME_PRNTF) || $(NAME_BONUS))
-MOD_H = $(shell find . -name "*.h" -type f -newer $(NAME) || $(NAME_FDF) || $(NAME_PRNTF) || $(NAME_BONUS))
+MOD_OBJB_FDF = $(shell find . -path "./objs_fdf_bonus/*.o" -type f -newer $(NAME_FDF_BONUS))
 
+## COMPILATION RULES ##
 all : $(NAME) 
 
 srcs_to_printf : $(NAME_PRNTF)
+
+srcs_to_fdf_bonus: $(NAME_FDF_BONUS)
 
 srcs_to_fdf : $(NAME_FDF)
 
@@ -147,7 +169,7 @@ bonus : $(NAME_BONUS)
 all_all: all srcs_to_printf srcs_to_fdf bonus
 
 $(NAME) : $(OBJS) 
-	@printf "\n$(YELLOW)Linking Objects to Library...$(DEF_COLOR)\n";
+	@printf "\n$(YELLOW)Linking Mandatory Objects to Library...$(DEF_COLOR)\n";
 	@for file in $(MOD_OBJ); do \
 		printf "\n$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME)$(DEF_COLOR)\n"; \
 		printf "ar -rsc $(NAME) $$file\n"; \
@@ -158,13 +180,13 @@ $(NAME) : $(OBJS)
 		if [[ -z "$$(nm $(NAME) | grep $${file}.o:)" ]]; then \
 		printf "\n$(CYAN)Linking $(WHITE)$$file.o $(GRAY)to $(RED)$(NAME)$(DEF_COLOR)\n"; \
 		ar -rsc $(NAME) $(OBJS_PATH)$$file.o; \
-		printf "ar -rsc $(NAME) $$file.o\n"; \
+		printf "ar -rsc $(NAME) $(OBJS_PATH)$$file.o\n"; \
 		printf "$(WHITE)$$file $(GREEN)OK$(DEF_COLOR)\n"; \
 	fi; \
 	done
 
 $(NAME_PRNTF) : $(OBJS_PRNTF) 
-	@printf "\n$(YELLOW)Linking Objects to Library...$(DEF_COLOR)\n";
+	@printf "\n$(YELLOW)Linking Printf Objects From Libft to Library...$(DEF_COLOR)\n";
 	@for file in $(MOD_OBJ_PRNTF); do \
 		printf "\n$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME_PRNTF)$(DEF_COLOR)\n"; \
 		printf "ar -rsc $(NAME_PRNTF) $$file\n"; \
@@ -175,13 +197,13 @@ $(NAME_PRNTF) : $(OBJS_PRNTF)
 	if [[ -z "$$(nm $(NAME_PRNTF) | grep $${file}.o:)" ]]; then \
 		printf "\n$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME_PRNTF)$(DEF_COLOR)\n"; \
 		ar -rsc $(NAME_PRNTF) $(PRNTF_OBJS_PATH)$$file.o; \
-		printf "ar -rsc $(NAME_PRNTF) $$file.o\n"; \
+		printf "ar -rsc $(NAME_PRNTF) $(PRNTF_OBJS_PATH)$$file.o\n"; \
 		printf "$(WHITE)$$file $(GREEN)OK$(DEF_COLOR)\n"; \
 	fi; \
 	done
 
 $(NAME_FDF) : $(OBJS_FDF) 
-	@printf "\n$(YELLOW)Linking Objects to Library...$(DEF_COLOR)\n";
+	@printf "\n$(YELLOW)Linking fdf Objects From libft to Library...$(DEF_COLOR)\n";
 	@for file in $(MOD_OBJ_FDF); do \
 		printf "\n$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME_FDF)$(DEF_COLOR)\n"; \
 		printf "ar -rsc $(NAME_FDF) $$file\n"; \
@@ -197,9 +219,28 @@ $(NAME_FDF) : $(OBJS_FDF)
 	fi; \
 	done
 
+$(NAME_FDF_BONUS) : $(OBJSB_FDF)
+	@printf "\n$(YELLOW)Linking fdf Bonus Objects From libft to Library...$(DEF_COLOR)\n";
+	@for file in $(MOD_OBJB_FDF); do \
+		printf "\n$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME_FDF_BONUS)$(DEF_COLOR)\n"; \
+		printf "ar -rsc $(NAME_FDF_BONUS) $$file\n"; \
+		ar -rsc $(NAME_FDF_BONUS) $$file; \
+		printf "$(WHITE)$$file $(GREEN)OK$(DEF_COLOR)\n"; \
+	done
+	@for file in $(FDF_SRCS_BONUS); do \
+	if [[ -z "$$(nm $(NAME_FDF_BONUS) | grep $${file}.o:)" ]]; then \
+		printf "\n$(CYAN)Linking $(WHITE)$$file.o $(GRAY)to $(RED)$(NAME_FDF_BONUS)$(DEF_COLOR)\n"; \
+		ar -rsc $(NAME_FDF_BONUS) $(FDF_OBJSB_PATH)$$file.o; \
+		printf "ar -rsc $(NAME_FDF_BONUS) $$file.o\n"; \
+		printf "$(WHITE)$$file $(GREEN)OK$(DEF_COLOR)\n"; \
+	fi; \
+	done
+
 $(NAME_BONUS) : $(NAME) $(OBJSB) 
-	@printf "\n$(YELLOW)Linking Objects to Library...$(DEF_COLOR)\n";
-	@cp $(NAME) $(NAME_BONUS)
+	@printf "\n$(YELLOW)Creating $(NAME_BONUS) Library With ALL Objects from libft...$(DEF_COLOR)\n";
+	@if	[[ -z "$$(nm $(NAME_BONUS) | grep ft_lstnew.o:)" ]]; then \
+		cp $(NAME) $(NAME_BONUS); \
+	fi
 	@for file in $(MOD_OBJB); do \
 		printf "\n$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME_BONUS)$(DEF_COLOR)\n"; \
 		printf "ar -rsc $(NAME_BONUS) $$file\n"; \
@@ -210,11 +251,10 @@ $(NAME_BONUS) : $(NAME) $(OBJSB)
 	if [[ -z "$$(nm $(NAME_BONUS) | grep $${file}.o:)" ]]; then \
 		ar -rsc $(NAME_BONUS) $(OBJSB_PATH)$$file.o; \
 		printf "\n$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME_BONUS)$(DEF_COLOR)\n"; \
-		printf "ar -rsc $(NAME_BONUS) $$file.o\n"; \
+		printf "ar -rsc $(NAME_BONUS) $(OBJSB_PATH)$$file.o\n"; \
 		printf "$(WHITE)$$file $(GREEN)OK$(DEF_COLOR)\n"; \
 	fi; \
 	done
-
 
 $(OBJS_PATH)%.o : %.c
 	@printf "\n$(YELLOW)Compiling All libft Sources...$(DEF_COLOR)\n\n"
@@ -225,12 +265,16 @@ $(OBJSB_PATH)%.o : %.c
 	@make BONUS_LIBFT_LOOP --no-print-directory
 
 $(PRNTF_OBJS_PATH)%.o : %.c
-	@printf "\n$(YELLOW)Compiling libft Sources... $(DEF_COLOR)\n\n"
+	@printf "\n$(YELLOW)Compiling Libft Sources to Printf... $(DEF_COLOR)\n\n"
 	@make PRNTF_LOOP --no-print-directory
 
 $(FDF_OBJS_PATH)%.o : %.c
 	@printf "\n$(YELLOW)Compiling libft Sources... $(DEF_COLOR)\n\n"
 	@make FDF_LOOP --no-print-directory
+
+$(FDF_OBJSB_PATH)%.o : %.c
+	@printf "\n$(YELLOW)Compiling Bonus libft Sources... $(DEF_COLOR)\n\n"
+	@make FDF_BONUS_LOOP --no-print-directory
 
 FDF_LOOP :
 	@mkdir -p $(FDF_OBJS_PATH)
@@ -239,6 +283,17 @@ FDF_LOOP :
 		printf "$(CYAN)Compiling $(WHITE)$$file.c...$(DEF_COLOR)\n"; \
 		$(CC) $(CFLAGS) -c $$file.c -o $(FDF_OBJS_PATH)$$file.o; \
 		printf "$(CC) $(CFLAGS) -c $$file.c -o $(FDF_OBJS_PATH)$$file.o$(DEF_COLOR)\n"; \
+		printf "$(WHITE)$$file.c $(GREEN)OK$(DEF_COLOR)\n\n"; \
+	fi; \
+	done
+
+FDF_BONUS_LOOP :
+	@mkdir -p $(FDF_OBJSB_PATH)
+	@for file in $(FDF_SRCS_BONUS); do \
+	if [ $$file.c -nt $(FDF_OBJSB_PATH)$$file.o ]; then \
+		printf "$(CYAN)Compiling $(WHITE)$$file.c...$(DEF_COLOR)\n"; \
+		$(CC) $(CFLAGS) -c $$file.c -o $(FDF_OBJSB_PATH)$$file.o; \
+		printf "$(CC) $(CFLAGS) -c $$file.c -o $(FDF_OBJSB_PATH)$$file.o$(DEF_COLOR)\n"; \
 		printf "$(WHITE)$$file.c $(GREEN)OK$(DEF_COLOR)\n\n"; \
 	fi; \
 	done
@@ -279,6 +334,7 @@ BONUS_LIBFT_LOOP :
 	done
 	@printf "$(GREEN)Objects Compiled Into $(WHITE)$(OBJSB_PATH)$(DEF_COLOR)\n" \
 
+## CLEANING RULES ##
 clean_all :
 	@make clean --no-print-directory
 	@make clean_bonus --no-print-directory
@@ -290,7 +346,17 @@ clean:
 		rm -rf $(OBJS_PATH); \
 		printf "$(RED)Libft Objects Removed$(DEF_COLOR)\n"; \
 	fi
+	@if [ -d $(OBJSB_PATH) ]; then \
+		rm -rf $(OBJSB_PATH); \
+		printf "$(RED)Libft Bonus Objects Removed$(DEF_COLOR)\n"; \
+	fi
 	@rm -f a.out
+
+clean_libft:
+	@if [ -d $(OBJS_PATH) ]; then \
+		rm -rf $(OBJS_PATH); \
+		printf "$(RED)Libft Objects Removed$(DEF_COLOR)\n"; \
+	fi
 
 clean_printf:
 	@if [ -d $(PRNTF_OBJS_PATH) ]; then \
@@ -306,6 +372,13 @@ clean_fdf:
 	fi
 	@rm -f a.out
 
+clean_fdf_bonus:
+	@if [ -d $(FDF_OBJSB_PATH) ]; then \
+		rm -rf $(FDF_OBJSB_PATH); \
+		printf "$(RED)FDF Bonus Objects Removed$(DEF_COLOR)\n"; \
+	fi
+	@rm -f a.out
+
 clean_bonus :
 	@if [ -d $(OBJSB_PATH) ]; then \
 		rm -rf $(OBJSB_PATH); \
@@ -313,10 +386,18 @@ clean_bonus :
 	fi
 	@rm -f a.out
 
-fclean_all : fclean_printf fclean_fdf fclean_bonus fclean
+fclean_all : fclean_printf fclean_fdf fclean_bonus fclean_fdf_bonus fclean 
 
 fclean :
 	@make clean --no-print-directory;
+	@if [ -f $(NAME) ]; then \
+		rm -f $(NAME); \
+		printf "$(RED)$(NAME) Removed$(DEF_COLOR)\n"; \
+	fi
+	@make fclean_bonus --no-print-directory
+
+fclean_libft :
+	@make clean_libft --no-print-directory;
 	@if [ -f $(NAME) ]; then \
 		rm -f $(NAME); \
 		printf "$(RED)$(NAME) Removed$(DEF_COLOR)\n"; \
@@ -336,6 +417,13 @@ fclean_fdf :
 		printf "$(RED)$(NAME_FDF) Removed$(DEF_COLOR)\n"; \
 	fi
 
+fclean_fdf_bonus :
+	@make clean_fdf_bonus --no-print-directory;
+	@if [ -f $(NAME_FDF_BONUS) ]; then \
+		rm -f $(NAME_FDF_BONUS); \
+		printf "$(RED)$(NAME_FDF_BONUS) Removed$(DEF_COLOR)\n"; \
+	fi
+
 fclean_bonus :
 	@make clean_bonus --no-print-directory;
 	@if [ -f $(NAME_BONUS) ]; then \
@@ -352,4 +440,3 @@ re_fdf : fclean_fdf srcs_to_fdf
 re_bonus : fclean_bonus srcs_to_bonus
 
 phony : all clean fclean re bonus printf
-

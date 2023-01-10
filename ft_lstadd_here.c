@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_lstadd_here.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 18:46:16 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/10 18:47:26 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/01/09 14:23:27 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/01/09 17:09:39 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft_bonus.h"
 
-# include "../includes/printf_libft_includes.h"
+t_node	*ft_lstadd_here(t_node **lst, t_node *new, uint index)
+{
+	t_node	*old;
 
-#endif
+	old = *lst;
+	if (!index)
+		return (NULL);
+	while (old)
+	{
+		if (!--index)
+			break ;
+		old = old->next;
+	}
+	if (!old)
+		return (NULL);
+	new->next = old->next;
+	old->next = new;
+	return (new);
+}

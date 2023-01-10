@@ -1,20 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_lstprint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 14:20:54 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/10 12:35:15 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/01/07 11:48:44 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/01/10 10:57:43 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_bonus.h"
 
 static inline size_t	aux_putchar(char c);
+static inline size_t	aux_putstr(char *s);
 
-size_t	ft_putstr(char *s)
+void	ft_lstprint(t_node **lst)
+{
+	t_node	*tmp;
+
+	if (!lst || !*lst)
+	{
+		if (!lst)
+			aux_putstr("\n\n all nodes and list itself were already freed \n");
+		else
+			aux_putstr("\n\n empty list");
+		return ;
+	}
+	tmp = *lst;
+	while (tmp)
+	{
+		aux_putstr(tmp->content);
+		aux_putchar('-');
+		aux_putchar('>');
+		aux_putchar('\n');
+		tmp = tmp->next;
+	}
+}
+
+static inline size_t	aux_putstr(char *s)
 {
 	int	i;
 

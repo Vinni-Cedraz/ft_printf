@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_lstclean.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 18:46:16 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/10 18:47:26 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/01/09 18:34:10 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/01/09 18:35:10 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft_bonus.h"
 
-# include "../includes/printf_libft_includes.h"
+void	ft_lstfree_nodes(t_node **list)
+{
+	t_node	*tmp;
 
-#endif
+	tmp = *list;
+	if (list == NULL)
+		return ;
+	while (tmp)
+	{
+		*list = tmp->next;
+		free(tmp);
+		tmp = *list;
+	}
+	list = NULL;
+}

@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lstshift.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 00:23:19 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/16 00:23:24 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/01/09 18:39:56 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/01/09 19:03:34 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+t_node	*ft_lstshift(t_node **head)
 {
-	if (!lst)
-		return ;
-	del(lst->content);
-	free(lst);
+	t_node	*new_head;
+
+	if (!head || !*head || !(*head)->next)
+		return (*head);
+	new_head = (*head)->next;
+	free(*head);
+	*head = new_head;
+	return (new_head);
 }
