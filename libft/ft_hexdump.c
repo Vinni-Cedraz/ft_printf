@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 17:46:51 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/11/20 16:25:49 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/02/03 21:30:37 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_putstr_non_printable(char *str)
 			ft_putchar('\\');
 			if (str[i] < 16)
 				ft_putchar('0');
-			ft_print_hexa(str[i], HEX);
+			ft_print_hexa(str[i], HEX_BASE_LOWER);
 		}
 		else
 			ft_putchar(str[i]);

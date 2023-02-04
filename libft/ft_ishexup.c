@@ -6,20 +6,34 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 08:31:28 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/10 12:34:21 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:02:28 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static inline int	aux_isdigit(int c);
+static inline int	is_digit(int c);
+static inline int	is_hexup(int c);
 
-int	ft_ishexup(int c)
+int	ft_ishexup(char *s)
 {
-	return (aux_isdigit(c) || (c >= 'A' && c <= 'F') || c == 'x');
+	if (!s)
+		return (0);
+	while (*s)
+	{
+		if (!is_digit(*s) && !is_hexup(*s))
+			return (0);
+		s++;
+	}
+	return (1);
 }
 
-static inline int	aux_isdigit(int c)
+static inline int	is_digit(int c)
 {
 	return ('0' <= c && c <= '9');
+}
+
+static inline int	is_hexup(int c)
+{
+	return ('A' <= c && c <= 'F');
 }

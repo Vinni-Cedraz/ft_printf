@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ishexlow.c                                      :+:      :+:    :+:   */
+/*   printf_libft_includes.h                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 08:32:21 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/10 12:34:13 by vcedraz-         ###   ########.fr       */
+/*   Created: 2022/12/08 12:22:46 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/02/03 19:18:16 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PRINTF_LIBFT_INCLUDES_H
+# define PRINTF_LIBFT_INCLUDES_H
 
-static inline int	aux_isdigit(int c);
+# include "printf_libft_defines.h"
+# include "printf_libft_prototypes.h"
+# include "printf_libft_structs.h"
+# include "printf_libft_syslibs.h"
 
-int	ft_ishexlow(char *s)
-{
-	while (*s)
-	{
-		if (aux_isdigit(*s) || (*s >= 'a' && *s <= 'f'))
-			return (1);
-		s++;
-	}
-	return (0);
-}
-
-static inline int	aux_isdigit(int c)
-{
-	return ('0' <= c && c <= '9');
-}
+#endif

@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstgetby_content.c                              :+:      :+:    :+:   */
+/*   ft_lstcircular_free.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/09 21:22:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/09 21:39:13 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/01/26 00:12:11 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/01/26 00:39:21 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "libft_bonus.h"
 
-int	ft_lstgetby_content(t_node *lst, void *content)
+void	ft_lstcircular_free(t_node **head)
 {
-	uint	index;
+	t_node	*current;
+	t_node	*temp;
 
-	index = 0;
-	if (!lst || !content)
-		return (-1);
-	while (lst)
+	if (!head || !*head)
+		return ;
+	current = *head;
+	temp = current->next;
+	while (temp != *head)
 	{
-		if (!ft_memcmp(lst->content, content, sizeof(content)))
-			return (index);
-		lst = lst->next;
-		index++;
+		free(current);
+		current = temp;
+		temp = temp->next;
 	}
-	return (-1);
+	free(current);
+	*head = NULL;
 }

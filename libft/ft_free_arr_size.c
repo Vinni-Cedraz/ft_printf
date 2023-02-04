@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_free_2d_arr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 00:24:02 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/09 12:45:50 by vcedraz-         ###   ########.fr       */
+/*   Created: 2022/12/13 19:29:13 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/01/27 09:07:39 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "libft_bonus.h"
 
-t_node	*ft_lstnew(void *content)
+void	ft_free_arr_size(void **arr, uint size)
 {
-	t_node	*node;
+	uint	i;
 
-	node = malloc(sizeof(*node));
-	node->content = content;
-	node->next = NULL;
-	return (node);
+	if (arr == NULL)
+		return ;
+	i = 0;
+	while (i < size)
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
 }
