@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_free_arr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 14:01:52 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/07 22:24:58 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/01/27 09:08:44 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/01/29 12:58:40 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-typedef unsigned char	t_uc;
-
-static inline void	*aux_ft_memchr(const void *s, int c, size_t n)
+void	ft_free_arr(char **arr, void **aux)
 {
-	while (n-- != 0)
-		if (*(t_uc *)s++ == (t_uc)c)
-			return ((t_uc *)s - 1);
-	return (NULL);
-}
-
-static inline size_t	aux_ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str && *(str + i))
-		i++;
-	return (i);
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	return ((char *)aux_ft_memchr(s, c, aux_ft_strlen(s) + 1));
+	if (!arr)
+		return ;
+	while (*arr)
+		free(*arr++);
+	free(aux);
 }

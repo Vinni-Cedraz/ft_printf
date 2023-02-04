@@ -6,30 +6,17 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:07:10 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/09 21:56:04 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/01/26 00:39:40 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_BONUS_H
 # define LIBFT_BONUS_H
 
-# include <pthread.h>
-# include <stdio.h>
-# include <stdlib.h>
-
-# define FIXED_BUFSZ 10000
+# include "libft.h"
 
 typedef struct s_nodes	t_node;
-
-typedef struct s_mod
-{
-	short				read_failed;
-	char				*buf;
-	int					l_bgn;
-	int					l_end;
-	int					l_sz;
-	int					read;
-}						t_mod;
+typedef unsigned int	t_ui;
 
 typedef struct s_nodes
 {
@@ -38,7 +25,7 @@ typedef struct s_nodes
 }						t_node;
 
 // LINKED LISTS BASIC FUNCTIONS
-// ft_lstnew creates a new element
+// ft_lstnew creates a new node
 t_node					*ft_lstnew(void *content);
 // ft_lstadd_back adds a new element at the end of a list
 void					ft_lstadd_back(t_node **head, t_node *new_node);
@@ -55,22 +42,20 @@ int						ft_lstsize(t_node *first_node);
 // ft_lst_print prints the content of a list
 void					ft_lstprint(t_node **lst);
 // adds a node at a specific position in the list and returns a pointer to it
-t_node					*ft_lstadd_here(t_node **lst, t_node *n, uint index);
+t_node					*ft_lstadd_here(t_node **lst, t_node *n, t_ui index);
 // del a node at a given index
-void					ft_lstdel_here(t_node **lst, uint index);
+void					ft_lstdel_here(t_node **lst, t_ui index);
 // returns a pointer to the node at the index position in the list
-t_node					*ft_lstgetby_index(t_node *lst, uint index);
+t_node					*ft_lstgetby_index(t_node *lst, t_ui index);
 // returns the index at which a given content is found within a list
 int						ft_lstgetby_content(t_node *lst, void *content);
-// frees the nodes of a list but not the list itself:
-void					ft_lstfree_nodes(t_node **lst);
 // frees the first node of a list
 t_node					*ft_lstshift(t_node **lst);
 // frees the last node of a list
 void					ft_lstpop(t_node **lst);
-
-//  FORBIDDEN FUNCTIONS, USE ONLY WHEN THE BONUS ALLOWS ANY FUNCTION
-// ft_special_gnl is a faster gnl with fread, fopen and a fixed buffersize
-char					*ft_special_gnl(FILE *fp);
+// makes a list become a circular list
+void					ft_lst_make_it_circular(t_node **head);
+// frees a circular list
+void					ft_lstcircular_free(t_node **head);
 
 #endif

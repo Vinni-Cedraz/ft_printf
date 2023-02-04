@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 11:02:35 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/10 11:16:04 by vcedraz-         ###   ########.fr       */
+/*   Created: 2022/11/16 00:24:02 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/01/12 15:02:09 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+t_node	*ft_lstnew(void *content)
 {
-	unsigned char	chr;
-	unsigned char	*str;
+	t_node	*node;
 
-	chr = (unsigned char)c;
-	str = (unsigned char *)s;
-	while (n--)
-		if (*str++ == chr)
-			return (str - 1);
-	return (NULL);
+	node = malloc(sizeof(*node));
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }

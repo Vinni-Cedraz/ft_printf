@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_t_map.c                                    :+:      :+:    :+:   */
+/*   ft_lst_make_it_circular.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 19:29:13 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/10 12:32:50 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/01/20 22:05:40 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/01/25 23:32:30 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
-static inline void	aux_free_arr(char **arr, void **aux);
-
-void	ft_free_t_map(t_point **map)
+void	ft_lst_make_it_circular(t_node **head)
 {
-	if (map == NULL)
+	t_node	*tail;
+
+	if (!head || !*head)
 		return ;
-	aux_free_arr((char **)(map), (void **)(map));
-	map = NULL;
-}
-
-static inline void	aux_free_arr(char **arr, void **aux)
-{
-	while (*arr)
-		free(*arr++);
-	free(aux);
+	tail = *head;
+	tail = ft_lstlast(*head);
+	tail->next = *head;
 }

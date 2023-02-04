@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 18:51:28 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/08 00:26:19 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/01/23 13:02:45 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,34 @@
 
 typedef unsigned int	t_uint;
 typedef unsigned char	t_uc;
+
+static void				*aux_ft_memcpy(void *dst, const void *src, size_t n);
+static void				*aux_ft_calloc(size_t nmemb, size_t size);
+static size_t			aux_ft_strlen(const char *str);
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*substr;
+	size_t	s_len;
+
+	s_len = (t_uint)aux_ft_strlen(s);
+	if (start > s_len)
+		return ((char *)aux_ft_calloc(1, sizeof(char)));
+	else if (len > s_len - start)
+	{
+		substr = malloc((s_len - start + 1) * sizeof(char));
+		aux_ft_memcpy(substr, s + start, s_len - start);
+		substr[s_len - start] = '\0';
+		return (substr);
+	}
+	else
+	{
+		substr = malloc((len + 1) * sizeof(char));
+		aux_ft_memcpy(substr, s + start, len);
+		substr[len] = '\0';
+		return (substr);
+	}
+}
 
 static inline void	*aux_ft_memcpy(void *dst, const void *src, size_t n)
 {
@@ -52,28 +80,4 @@ static inline void	*aux_ft_calloc(size_t nmemb, size_t size)
 		i++;
 	}
 	return (ptr);
-}
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*substr;
-	size_t	s_len;
-
-	s_len = (t_uint)aux_ft_strlen(s);
-	if (start > s_len)
-		return ((char *)aux_ft_calloc(1, sizeof(char)));
-	else if (len > s_len - start)
-	{
-		substr = malloc((s_len - start + 1) * sizeof(char));
-		aux_ft_memcpy(substr, s + start, s_len - start);
-		substr[s_len - start] = '\0';
-		return (substr);
-	}
-	else
-	{
-		substr = malloc((len + 1) * sizeof(char));
-		aux_ft_memcpy(substr, s + start, len);
-		substr[len] = '\0';
-		return (substr);
-	}
 }
