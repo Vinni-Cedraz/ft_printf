@@ -15,7 +15,7 @@
 ## GNL
 * GNL is a personalized version of the getline function (found in <stdlib.h>)
 * Why GNL?
-1. In many C projects we need to read from files one line at a time, but we don't get to use the original getline.
+1. In many C projects we need to read from files one line at a time, but we are not allowed to use the original getline, so we make our own.
 2. It's a hardcore introduction to memory allocation where there's ZERO TOLERANCE to leaks.
 3. Doing it efficiently will affect the efficiency of your latter projects
 4. I noticed how allocating and freeing on a loop or constantly using "higher" level string manipulation functions can make a program slower
