@@ -6,7 +6,7 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2023/02/03 21:27:05 by vcedraz-         ###   ########.fr        #
+#    Updated: 2023/03/17 13:51:04 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,6 @@ ft_free_arr_size \
 ft_isalpha \
 ft_isascii \
 ft_isdigit \
-ft_isprint \
 ft_ishexup \
 ft_ishexlow \
 ft_memchr \
@@ -60,12 +59,10 @@ ft_atoi_base \
 ft_strncmp \
 ft_word_counter \
 ft_calloc \
-ft_hexdump \
 ft_memmove \
 ft_putnbr_fd \
 ft_putstr \
 ft_putstr_fd \
-ft_rev_int_tab \
 ft_striteri \
 ft_strrchr \
 ft_strrev \
@@ -76,7 +73,6 @@ ft_bzero \
 ft_isalnum \
 ft_itoa_base \
 ft_putendl_fd \
-ft_sort_int_tab \
 ft_strchr \
 ft_strdup \
 ft_strlcat \
