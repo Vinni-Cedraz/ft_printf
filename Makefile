@@ -6,7 +6,7 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 12:57:13 by vcedraz-          #+#    #+#              #
-#    Updated: 2023/02/03 21:36:43 by vcedraz-         ###   ########.fr        #
+#    Updated: 2023/05/07 11:18:15 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,15 +39,15 @@ SRCS_1 = ft_printf \
   	   call_num_writers \
 
 SRCS_LIB = ft_putchar \
-             ft_calloc \
-              ft_strlen \
-               ft_memset \
-             ft_itoa_base \
-		   		   ft_itoa \
-			     ft_ishexup \
-				  ft_strlcat \
-				    ft_strdup \
-					   ft_swap \
+           ft_calloc \
+           ft_strlen \
+           ft_memset \
+           ft_itoa_base \
+		   ft_itoa \
+		   ft_ishexup \
+		   ft_strlcat \
+		   ft_strdup \
+		   ft_swap \
 
 SRCS_1_PATH = ./srcs/
 SRCS_LIB_PATH = ./libft/
