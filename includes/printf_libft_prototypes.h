@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 13:21:51 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/05/07 11:17:03 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/05/07 15:13:03 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,5 +201,9 @@ int		ft_atoi_base(char *str, char *base);
 int		ft_ishexup(char *s);
 // hex low:
 int		ft_ishexlow(char *s);
+// returns positive if char is a whitespace ('\0' not seen as a whitespace):
+int		is_whitespace(char c);
+// randomize an array in place, has forbidden functions use carefully
+void	ft_randomize_array(int *arr, int arr_size);
 
 #endif
