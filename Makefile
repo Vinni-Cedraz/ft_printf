@@ -6,7 +6,7 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 12:57:13 by vcedraz-          #+#    #+#              #
-#    Updated: 2023/05/07 11:18:15 by vcedraz-         ###   ########.fr        #
+#    Updated: 2023/05/07 11:31:48 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,10 +64,9 @@ libft_srcs_to_printf:
 		make -C $(LIBFT_PATH) srcs_to_printf --no-print-directory; \
 	fi	
 
-lib:
-	@if [ ! -f $(LIBFT_PATH)libft.a ]; then \
-		make -C $(LIBFT_PATH) --no-print-directory; \
-	fi
+lib: $(NAME)
+	make -C $(LIBFT_PATH) --no-print-directory; \
+	ar rcs $(LIBFT_PATH)libft.a $(NAME);
 
 $(NAME): $(OBJS_1) $(OBJS_LIB)
 	@make libft_srcs_to_printf --no-print-directory
