@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 21:46:59 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/10 10:54:48 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/05/07 15:14:49 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,7 @@
 
 static size_t			converted_len(size_t n, char *base);
 static void				*aux_calloc(size_t nmemb, size_t size);
-
-static inline size_t	aux_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str && *(str + i))
-		i++;
-	return (i);
-}
+static inline size_t	aux_strlen(const char *str);
 
 char	*ft_itoa_base(size_t n, char *base)
 {
@@ -56,6 +47,16 @@ static size_t	converted_len(size_t n, char *base)
 		nb.len++;
 	}
 	return (nb.len);
+}
+
+static inline size_t	aux_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str && *(str + i))
+		i++;
+	return (i);
 }
 
 static void	*aux_calloc(size_t nmemb, size_t size)

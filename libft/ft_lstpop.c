@@ -6,13 +6,13 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:41:21 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/09 19:55:42 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/05/07 15:37:57 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_bonus.h"
 
-void	ft_lstpop(t_node **lst)
+void	ft_lstshift(t_node **lst)
 {
 	t_node	*new_tail;
 

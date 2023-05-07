@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:07:10 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/26 00:39:40 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/05/07 15:39:10 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ void					ft_lstdel_here(t_node **lst, t_ui index);
 t_node					*ft_lstgetby_index(t_node *lst, t_ui index);
 // returns the index at which a given content is found within a list
 int						ft_lstgetby_content(t_node *lst, void *content);
-// frees the first node of a list
-t_node					*ft_lstshift(t_node **lst);
 // frees the last node of a list
-void					ft_lstpop(t_node **lst);
+void					ft_lstshift(t_node **lst);
+// frees the first node of a list
+t_node					*ft_lstpop(t_node **lst);
 // makes a list become a circular list
 void					ft_lst_make_it_circular(t_node **head);
 // frees a circular list
