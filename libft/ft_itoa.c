@@ -6,92 +6,105 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 14:40:59 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/10 10:51:57 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/05/07 12:18:21 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int			aux_numlen(int n);
-static void			*aux_calloc(size_t nmemb, size_t size);
-static char			*aux_strrev(char *str, size_t strlen);
+static int	numlen(int n);
+static void	build_str(int nbr, char *str, char **iter);
+static char	*mstr(char *s, int n);
 
-static inline int	aux_abs(int n)
+char	*ft_itoa(int nbr)
 {
-	if (n < 0)
-		return (n * -1);
-	return (n);
-}
+	int		strlen;
+	char	*str;
+	char	*iter;
 
-char	*ft_itoa(int n)
-{
-	int		i;
-	int		n_len;
-	int		n_abs;
-	char	*to_ascii;
-
-	i = 0;
-	n_abs = aux_abs(n);
-	if (n == 0)
-		return (ft_strdup("0"));
-	if (n == INT_MIN)
-		return (ft_strdup("-2147483648"));
-	n_len = aux_numlen(n);
-	to_ascii = aux_calloc(n_len + 1, sizeof(char));
-	while (n_abs != 0)
-	{
-		to_ascii[i++] = n_abs % 10 + '0';
-		n_abs /= 10;
-	}
-	if (n > 0)
-		return (aux_strrev(to_ascii, n_len));
-	ft_strlcat(to_ascii, "-", n_len + 1);
-	return (aux_strrev(to_ascii, n_len));
-}
-
-static void	*aux_calloc(size_t nmemb, size_t size)
-{
-	char	*ptr;
-	size_t	i;
-
-	i = 0;
-	if (!size || !nmemb)
-		return (malloc(0));
-	if (nmemb > __SIZE_MAX__ / size)
-		return (NULL);
-	ptr = malloc(size * nmemb);
-	while (i < size * nmemb)
-	{
-		ptr[i] = 0;
-		i++;
-	}
-	return (ptr);
-}
-
-static char	*aux_strrev(char *str, size_t strlen)
-{
-	t_counters	count;
-
-	count.from_start = -1;
-	count.from_end = strlen;
-	while (++count.from_start < strlen / 2)
-		ft_swap(&str[count.from_start], &str[--count.from_end], sizeof(char));
+	if (nbr == INTMIN)
+		return (mstr("-2147483648", 12));
+	strlen = numlen(nbr);
+	str = (char *)malloc(sizeof(char) * strlen + 1);
+	iter = str;
+	if (nbr < 0)
+		*iter = '-', nbr *= -1, iter++;
+	build_str(nbr, str, &iter);
+	*iter = '\0';
 	return (str);
 }
 
-static int	aux_numlen(int n)
+static int	numlen(int n)
 {
-	int	i;
+	int	len;
 
-	i = 0;
+	len = 0;
 	if (n == 0)
 		return (1);
 	if (n < 0)
-		i++;
-	while (n != 0)
-	{
-		n /= 10;
-		i++;
-	}
-	return (i);
+		len++, n *= -1;
+	while (n)
+		n /= 10, len++;
+	return (len);
 }
+
+static void	build_str(int nbr, char *str, char **iter)
+{
+	if (nbr > 9)
+		build_str(nbr / 10, str, iter);
+	*(*iter)++ = (nbr % 10) + '0';
+}
+
+static char	*mstr(char *s, int n)
+{
+	int		i;
+	char	*mstr;
+
+	i = -1;
+	mstr = (char *)malloc((n + 1) * sizeof(char));
+	while (++i < n)
+		*(mstr + i) = *s++;
+	mstr[i] = '\0';
+	return (mstr);
+}
+
+// // ------------TESTS ---------------
+//
+// #include <assert.h>
+// #include <stdio.h>
+// #include <string.h>
+// #include <unistd.h>
+//
+// int main(void) {
+//     char *test;
+//
+//     test = my_itoa(1234);
+//     assert(!strcmp("1234", test));
+//     free(test);
+//     test = my_itoa(87);
+//     assert(!strcmp("87", test));
+//     free(test);
+//     test = my_itoa(9);
+//     assert(!strcmp("9", test));
+//     free(test);
+//     test = my_itoa(0);
+//     assert(!strcmp("0", test));
+//     free(test);
+//     test = my_itoa(-12);
+//     assert(!strcmp("-12", test));
+//     free(test);
+//     test = my_itoa(-122);
+//     assert(!strcmp("-122", test));
+//     free(test);
+//     test = my_itoa(-12999812);
+//     assert(!strcmp("-12999812", test));
+//     free(test);
+//     test = my_itoa(INTMIN);
+//     assert(!strcmp("-2147483648", test));
+//     free(test);
+//
+//     test = my_itoa(-2147483648);
+//     assert(!strcmp("-2147483648", test));
+//     free(test);
+//     printf("all tests passed!");
+// }
