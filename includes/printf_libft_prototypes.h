@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 13:21:51 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/02/03 21:03:53 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/05/07 11:17:03 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 # include "printf_libft_structs.h"
 # include "printf_libft_syslibs.h"
 
-// PRINTF PROTAGONISTS:
+// FT_PRINTF:
 
+// PRINTF PROTAGONISTS:
 int		ft_printf(const char *format, ...);
 int		parser(int c, va_list args);
 
@@ -39,6 +40,8 @@ int		put_hexup(unsigned long long value);
 int		put_hexlow(unsigned long long value);
 int		put_pointer(unsigned long long value);
 int		put_percent(void);
+
+// LIBFT_GNL:
 
 // ASCII TYPE IDENTIFICATION FUNCTIONS:
 
