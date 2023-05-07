@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 00:24:02 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/12 15:02:09 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/05/07 12:04:09 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_node	*ft_lstnew(void *content)
 {
 	t_node	*node;
 
-	node = malloc(sizeof(*node));
+	node = (t_node *)malloc(sizeof(*node));
 	node->content = content;
 	node->next = NULL;
 	return (node);
