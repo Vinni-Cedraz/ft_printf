@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:07:10 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/05/07 15:39:10 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/05/07 20:57:32 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,7 @@ t_node					*ft_lstpop(t_node **lst);
 void					ft_lst_make_it_circular(t_node **head);
 // frees a circular list
 void					ft_lstcircular_free(t_node **head);
+// checks if the parenthesis, braces and brackets are balanced in an expression
+int						ft_check_balanced(char expression[]);
 
 #endif

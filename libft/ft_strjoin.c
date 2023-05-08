@@ -6,16 +6,16 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 16:31:03 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/10 17:47:49 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/05/11 10:30:56 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static inline size_t	aux_strlcat(char *dst, const char *src, size_t size);
-static inline size_t	aux_strlcpy(char *dst, const char *src, size_t size);
-static inline size_t	aux_strlen(const char *str);
-static inline void	*aux_memcpy(void *dst, const void *src, size_t n);
+static size_t			aux_strlcat(char *dst, const char *src, size_t size);
+static size_t			aux_strlcpy(char *dst, const char *src, size_t size);
+static size_t			aux_strlen(const char *str);
+static void				*aux_memcpy(void *dst, const void *src, size_t n);
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
