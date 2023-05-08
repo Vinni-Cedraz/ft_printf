@@ -5,21 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/09 18:39:56 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/05/07 15:38:17 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/01/09 18:41:21 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/05/07 15:37:57 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_bonus.h"
 
-t_node	*ft_lstpop(t_node **head)
+void	ft_lstshift(t_node **lst)
 {
-	t_node	*new_head;
+	t_node	*new_tail;
 
-	if (!head || !*head || !(*head)->next)
-		return (*head);
-	new_head = (*head)->next;
-	free(*head);
-	*head = new_head;
-	return (new_head);
+	if (!lst || !(*lst)->next)
+		return ;
+	new_tail = *lst;
+	while (new_tail->next->next)
+		new_tail = new_tail->next;
+	free(new_tail->next);
+	new_tail->next = NULL;
 }
