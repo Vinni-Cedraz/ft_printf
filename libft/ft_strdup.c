@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
 
 static inline size_t	aux_strlen(const char *str);
 static inline size_t	aux_strlcpy(char *dst, const char *src, size_t len);
