@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "libft_bonus.h"
 
 void	ft_lstadd_front(t_node **lst, t_node *new)

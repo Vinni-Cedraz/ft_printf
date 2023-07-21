@@ -1,5 +1,4 @@
 # **************************************************************************** #
-
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
@@ -15,7 +14,6 @@
 NAME = libft.a
 NAME_BONUS = libft_bonus.a
 CFLAGS = -Wall -Werror -Wextra -O3
-AR = ar -rs
 RM = rm -f
 OBJS_PATH = ./objs/
 OBJSB_PATH = ./objs_bonus/
@@ -103,39 +101,43 @@ ft_lstshift \
 	
 OBJS = $(addprefix $(OBJS_PATH), $(addsuffix .o, $(SRCS)))
 OBJSB = $(addprefix $(OBJSB_PATH), $(addsuffix .o, $(BSRCS)))
-message := Objects are now $(GREEN)linked$(DEF_COLOR) into $(RED)$(NAME)$(DEF_COLOR)
-bmessage := Bonus Objects are now $(GREEN)linked$(DEF_COLOR) into $(RED)$(NAME_BONUS)$(DEF_COLOR)
+message = Objects are now $(GREEN)linked$(DEF_COLOR) into $(RED)$(NAME)$(DEF_COLOR)
+bmessage = Bonus Objects are now $(GREEN)linked$(DEF_COLOR) into $(RED)$(NAME_BONUS)$(DEF_COLOR)
 
 all: $(OBJS_PATH) $(NAME)
-	$(info $(shell printf "$(message)"))
+	@printf "$(message)"
 
 $(NAME): $(OBJS)
-	@ar -rcs $(NAME) $?
 	@printf "$(CYAN)linking objects into library $(NAME) $(DEF_COLOR)\n"
-	@$(foreach object, $?, printf "ar -rcs $(object)                         \r"; sleep 0.01;)
+	@ar -rvcs $(NAME) $?
 
 $(OBJS_PATH):
 	@mkdir -p $(OBJS_PATH)
 
 $(OBJS_PATH)%.o: %.c
+	@printf "$(GREEN)[ Compiling ] $(GRAY) $< \n$(DEF_COLOR)"
 	$(CC) $(CFLAGS) -c $< -o $@
 	
 bonus: $(OBJSB_PATH) $(NAME_BONUS)
-	$(info $(shell printf "$(bmessage)"))
+	@printf "$(bmessage)"
 
 $(NAME_BONUS): $(OBJSB)
-	ar -rcs $(NAME) $?
+	@printf "$(CYAN)linking bonus objects into library $(NAME_BONUS) $(DEF_COLOR)\n"
+	@ar -rvcs $(NAME_BONUS) $?
 
 $(OBJSB_PATH):
 	@mkdir -p $(OBJSB_PATH)
 
 $(OBJSB_PATH)%.o: %.c
+	@printf "$(GREEN)[ Compiling ] $(GRAY) $< \n$(DEF_COLOR)"
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -rf $(OBJS_PATH)
+	@rm -rf $(OBJSB_PATH)
 
 fclean: clean
 	@rm -f $(NAME)
+	@rm -f $(NAME_BONUS)
 
 re: fclean all
