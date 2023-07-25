@@ -105,11 +105,11 @@ message = Objects are now $(GREEN)linked$(DEF_COLOR) into $(RED)$(NAME)$(DEF_COL
 bmessage = Bonus Objects are now $(GREEN)linked$(DEF_COLOR) into $(RED)$(NAME_BONUS)$(DEF_COLOR)
 
 all: $(OBJS_PATH) $(NAME)
-	@printf "$(message)"
+	@printf "\n$(message)\n"
 
 $(NAME): $(OBJS)
-	@printf "$(CYAN)linking objects into library $(NAME) $(DEF_COLOR)\n"
-	@ar -rvcs $(NAME) $?
+	@printf "\n$(CYAN)linking objects into library $(NAME) $(DEF_COLOR)\n"
+	ar -rcs $(NAME) $?
 
 $(OBJS_PATH):
 	@mkdir -p $(OBJS_PATH)
@@ -119,11 +119,11 @@ $(OBJS_PATH)%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 	
 bonus: $(OBJSB_PATH) $(NAME_BONUS)
-	@printf "$(bmessage)"
+	@printf "\n$(bmessage)\n"
 
 $(NAME_BONUS): $(OBJSB)
-	@printf "$(CYAN)linking bonus objects into library $(NAME_BONUS) $(DEF_COLOR)\n"
-	@ar -rvcs $(NAME_BONUS) $?
+	@printf "\n$(CYAN)linking bonus objects into library $(NAME_BONUS) $(DEF_COLOR)\n"
+	ar -rcs $(NAME_BONUS) $?
 
 $(OBJSB_PATH):
 	@mkdir -p $(OBJSB_PATH)
