@@ -1,146 +1,258 @@
 [
  {
-  "directory": "/home/vcedraz-/42/ft_printf_libft",
+  "directory": "/root/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
+   "-g",
    "-Iincludes/",
-   "-Ilibft/",
    "-c",
-   "./srcs/pivot/ft_printf.c",
+   "srcs/ft_printf.c",
    "-o",
-   "./objs/pivot/ft_printf.o"
+   "objs/ft_printf.o"
   ],
-  "file": "./srcs/pivot/ft_printf.c"
+  "file": "srcs/ft_printf.c"
  },
  {
-  "directory": "/home/vcedraz-/42/ft_printf_libft",
+  "directory": "/root/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
+   "-g",
    "-Iincludes/",
-   "-Ilibft/",
    "-c",
-   "./srcs/pivot/is_format.c",
+   "srcs/parser.c",
    "-o",
-   "./objs/pivot/is_format.o"
+   "objs/parser.o"
   ],
-  "file": "./srcs/pivot/is_format.c"
+  "file": "srcs/parser.c"
  },
  {
-  "directory": "/home/vcedraz-/42/ft_printf_libft",
+  "directory": "/root/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
+   "-g",
    "-Iincludes/",
-   "-Ilibft/",
    "-c",
-   "./srcs/pivot/parser.c",
+   "srcs/writers.c",
    "-o",
-   "./objs/pivot/parser.o"
+   "objs/writers.o"
   ],
-  "file": "./srcs/pivot/parser.c"
+  "file": "srcs/writers.c"
  },
  {
-  "directory": "/home/vcedraz-/42/ft_printf_libft",
+  "directory": "/root/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
+   "-g",
    "-Iincludes/",
-   "-Ilibft/",
    "-c",
-   "./srcs/pivot/print_until.c",
+   "srcs/num_writers.c",
    "-o",
-   "./objs/pivot/print_until.o"
+   "objs/num_writers.o"
   ],
-  "file": "./srcs/pivot/print_until.c"
+  "file": "srcs/num_writers.c"
  },
  {
-  "directory": "/home/vcedraz-/42/ft_printf_libft",
+  "directory": "/root/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
+   "-g",
    "-Iincludes/",
-   "-Ilibft/",
    "-c",
-   "./srcs/aux/put_decimal.c",
+   "srcs/call_writers.c",
    "-o",
-   "./objs/aux/put_decimal.o"
+   "objs/call_writers.o"
   ],
-  "file": "./srcs/aux/put_decimal.c"
+  "file": "srcs/call_writers.c"
  },
  {
-  "directory": "/home/vcedraz-/42/ft_printf_libft",
+  "directory": "/root/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
+   "-g",
    "-Iincludes/",
-   "-Ilibft/",
    "-c",
-   "./srcs/aux/put_hex.c",
+   "srcs/call_num_writers.c",
    "-o",
-   "./objs/aux/put_hex.o"
+   "objs/call_num_writers.o"
   ],
-  "file": "./srcs/aux/put_hex.c"
+  "file": "srcs/call_num_writers.c"
  },
  {
-  "directory": "/home/vcedraz-/42/ft_printf_libft",
+  "directory": "/root/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
+   "-g",
    "-Iincludes/",
-   "-Ilibft/",
    "-c",
-   "./srcs/aux/put_pointer.c",
+   "srcs/ft_putchar.c",
    "-o",
-   "./objs/aux/put_pointer.o"
+   "objs/ft_putchar.o"
   ],
-  "file": "./srcs/aux/put_pointer.c"
+  "file": "srcs/ft_putchar.c"
  },
  {
-  "directory": "/home/vcedraz-/42/ft_printf_libft",
+  "directory": "/root/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
+   "-g",
    "-Iincludes/",
-   "-Ilibft/",
    "-c",
-   "./srcs/aux/put_string.c",
+   "srcs/ft_calloc.c",
    "-o",
-   "./objs/aux/put_string.o"
+   "objs/ft_calloc.o"
   ],
-  "file": "./srcs/aux/put_string.c"
+  "file": "srcs/ft_calloc.c"
  },
  {
-  "directory": "/home/vcedraz-/42/ft_printf_libft",
+  "directory": "/root/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
+   "-g",
    "-Iincludes/",
-   "-Ilibft/",
    "-c",
-   "./srcs/aux/put_usdecimal.c",
+   "srcs/ft_strlen.c",
    "-o",
-   "./objs/aux/put_usdecimal.o"
+   "objs/ft_strlen.o"
   ],
-  "file": "./srcs/aux/put_usdecimal.c"
+  "file": "srcs/ft_strlen.c"
+ },
+ {
+  "directory": "/root/ft_printf",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iincludes/",
+   "-c",
+   "srcs/ft_memset.c",
+   "-o",
+   "objs/ft_memset.o"
+  ],
+  "file": "srcs/ft_memset.c"
+ },
+ {
+  "directory": "/root/ft_printf",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iincludes/",
+   "-c",
+   "srcs/ft_itoa_base.c",
+   "-o",
+   "objs/ft_itoa_base.o"
+  ],
+  "file": "srcs/ft_itoa_base.c"
+ },
+ {
+  "directory": "/root/ft_printf",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iincludes/",
+   "-c",
+   "srcs/ft_itoa.c",
+   "-o",
+   "objs/ft_itoa.o"
+  ],
+  "file": "srcs/ft_itoa.c"
+ },
+ {
+  "directory": "/root/ft_printf",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iincludes/",
+   "-c",
+   "srcs/ft_ishexup.c",
+   "-o",
+   "objs/ft_ishexup.o"
+  ],
+  "file": "srcs/ft_ishexup.c"
+ },
+ {
+  "directory": "/root/ft_printf",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iincludes/",
+   "-c",
+   "srcs/ft_strlcat.c",
+   "-o",
+   "objs/ft_strlcat.o"
+  ],
+  "file": "srcs/ft_strlcat.c"
+ },
+ {
+  "directory": "/root/ft_printf",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iincludes/",
+   "-c",
+   "srcs/ft_strdup.c",
+   "-o",
+   "objs/ft_strdup.o"
+  ],
+  "file": "srcs/ft_strdup.c"
+ },
+ {
+  "directory": "/root/ft_printf",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iincludes/",
+   "-c",
+   "srcs/ft_swap.c",
+   "-o",
+   "objs/ft_swap.o"
+  ],
+  "file": "srcs/ft_swap.c"
  }
 ]

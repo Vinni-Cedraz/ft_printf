@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   ft_ishexup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 14:46:14 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/02/03 20:57:27 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/07/25 10:23:18 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/07/25 10:23:38 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_includes.h"
 
-int	parser(int i, va_list args)
-{
-	int								prntd_chars;
-	static const t_ptr_to_put_funct	formatters[9] = {
-		call_putchar,
-		call_putstring,
-		call_putpointer,
-		call_putdeci,
-		call_putdeci,
-		call_puthexlow,
-		call_puthexup,
-		call_put_unsigned,
-		call_put_percent
-	};
+static inline int	is_digit(int c);
+static inline int	is_hexup(int c);
 
-	prntd_chars = formatters[i](args);
-	return (prntd_chars);
+int	ft_ishexup(char *s)
+{
+	if (!s)
+		return (0);
+	while (*s)
+	{
+		if (!is_digit(*s) && !is_hexup(*s))
+			return (0);
+		s++;
+	}
+	return (1);
+}
+
+static inline int	is_digit(int c)
+{
+	return ('0' <= c && c <= '9');
+}
+
+static inline int	is_hexup(int c)
+{
+	return ('A' <= c && c <= 'F');
 }

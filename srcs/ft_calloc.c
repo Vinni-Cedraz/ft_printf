@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 14:46:14 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/02/03 20:57:27 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/07/25 10:22:42 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/07/25 10:23:16 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_includes.h"
+#include "ft_printf_prototypes.h"
 
-int	parser(int i, va_list args)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int								prntd_chars;
-	static const t_ptr_to_put_funct	formatters[9] = {
-		call_putchar,
-		call_putstring,
-		call_putpointer,
-		call_putdeci,
-		call_putdeci,
-		call_puthexlow,
-		call_puthexup,
-		call_put_unsigned,
-		call_put_percent
-	};
+	char	*ptr;
+	size_t	i;
 
-	prntd_chars = formatters[i](args);
-	return (prntd_chars);
+	i = 0;
+	if (!size || !nmemb)
+		return (malloc(0));
+	if (nmemb > __SIZE_MAX__ / size)
+		return (NULL);
+	ptr = malloc(size * nmemb);
+	while (i < size * nmemb)
+	{
+		ptr[i] = 0;
+		i++;
+	}
+	return (ptr);
 }
