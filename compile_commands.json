@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/root/ft_printf",
+  "directory": "/home/vcedraz-/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
@@ -16,7 +16,7 @@
   "file": "srcs/ft_printf.c"
  },
  {
-  "directory": "/root/ft_printf",
+  "directory": "/home/vcedraz-/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
@@ -32,7 +32,7 @@
   "file": "srcs/parser.c"
  },
  {
-  "directory": "/root/ft_printf",
+  "directory": "/home/vcedraz-/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
@@ -48,7 +48,7 @@
   "file": "srcs/writers.c"
  },
  {
-  "directory": "/root/ft_printf",
+  "directory": "/home/vcedraz-/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
@@ -64,7 +64,7 @@
   "file": "srcs/num_writers.c"
  },
  {
-  "directory": "/root/ft_printf",
+  "directory": "/home/vcedraz-/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
@@ -80,7 +80,7 @@
   "file": "srcs/call_writers.c"
  },
  {
-  "directory": "/root/ft_printf",
+  "directory": "/home/vcedraz-/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
@@ -96,7 +96,7 @@
   "file": "srcs/call_num_writers.c"
  },
  {
-  "directory": "/root/ft_printf",
+  "directory": "/home/vcedraz-/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
@@ -112,7 +112,7 @@
   "file": "srcs/ft_putchar.c"
  },
  {
-  "directory": "/root/ft_printf",
+  "directory": "/home/vcedraz-/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
@@ -128,7 +128,7 @@
   "file": "srcs/ft_calloc.c"
  },
  {
-  "directory": "/root/ft_printf",
+  "directory": "/home/vcedraz-/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
@@ -144,7 +144,7 @@
   "file": "srcs/ft_strlen.c"
  },
  {
-  "directory": "/root/ft_printf",
+  "directory": "/home/vcedraz-/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
@@ -160,7 +160,7 @@
   "file": "srcs/ft_memset.c"
  },
  {
-  "directory": "/root/ft_printf",
+  "directory": "/home/vcedraz-/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
@@ -176,7 +176,7 @@
   "file": "srcs/ft_itoa_base.c"
  },
  {
-  "directory": "/root/ft_printf",
+  "directory": "/home/vcedraz-/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
@@ -192,7 +192,7 @@
   "file": "srcs/ft_itoa.c"
  },
  {
-  "directory": "/root/ft_printf",
+  "directory": "/home/vcedraz-/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
@@ -208,7 +208,7 @@
   "file": "srcs/ft_ishexup.c"
  },
  {
-  "directory": "/root/ft_printf",
+  "directory": "/home/vcedraz-/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
@@ -224,7 +224,7 @@
   "file": "srcs/ft_strlcat.c"
  },
  {
-  "directory": "/root/ft_printf",
+  "directory": "/home/vcedraz-/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
@@ -240,7 +240,7 @@
   "file": "srcs/ft_strdup.c"
  },
  {
-  "directory": "/root/ft_printf",
+  "directory": "/home/vcedraz-/ft_printf",
   "arguments": [
    "cc",
    "-Wall",
